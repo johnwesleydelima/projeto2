@@ -15,7 +15,23 @@ const produtos = [
       peso: 0.7,
       marca: "AAAA",
       codigo: 6767
-  },
+  },// Filtrar produtos
+
+console.log("##### Produtos filtrados por valor menor que 25")
+const filtro = produtos.filter((produto)=> produto.valor < 25)
+console.log(filtro)
+
+// Alterar todos os produtos
+console.log("##### Produtos com 15% de desconto: #####")
+const desconto = produtos.map((produto)=> {
+    return {...produto, valor: produto.valor * 0.85}}
+)
+console.log(desconto)
+
+// Encontrar um produto
+console.log("##### Produto encontrado pelo código #####")
+const encontrar = produtos.find((produto) => produto.codigo == 1234)
+console.log(encontrar)
   {
       nome: "Feijão Preto",
       valor: "R$ 13,00",
@@ -116,42 +132,20 @@ produtosLista.push({
         marca: "CCCCC",
         codigo: 1234
     })
-
 // Filtrar produtos
-console.log("##### Produtos filtrados por valor menor que 25 #####")
 
-const filtro = produtosLista.filter((produto)=> 
-    parseFloat(
-        produto.valor.toString()
-        .replace("R$", "")
-        .replace(",", ".")
-    ) < 25
-)
-
+console.log("##### Produtos filtrados por valor menor que 25")
+const filtro = produtos.filter((produto)=> produto.valor < 25)
 console.log(filtro)
 
 // Alterar todos os produtos
 console.log("##### Produtos com 15% de desconto: #####")
-
-const desconto = produtosLista.map((produto)=> {
-
-    const valorNumero = parseFloat(
-        produto.valor.toString()
-        .replace("R$", "")
-        .replace(",", ".")
-    )
-
-    return {
-        ...produto,
-        valor: valorNumero * 0.85
-    }
-})
-
+const desconto = produtos.map((produto)=> {
+    return {...produto, valor: produto.valor * 0.85}}
+)
 console.log(desconto)
 
 // Encontrar um produto
 console.log("##### Produto encontrado pelo código #####")
-
-const encontrar = produtosLista.find((produto) => produto.codigo == 1234)
-
+const encontrar = produtos.find((produto) => produto.codigo == 1234)
 console.log(encontrar)
